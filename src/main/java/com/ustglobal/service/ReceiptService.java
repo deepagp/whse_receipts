@@ -33,9 +33,9 @@ public class ReceiptService {
 	SlotService slotService;
 
 	public List<POItem> getAssignedPOItems(int userId) {
-		//UserPOAssignment userPOAssignment = assignedPoRepository.findById(userId).get();
-		//return poItemsRepository.findByPONum(userPOAssignment.getPoNum()).collect(Collectors.toList());
-		UserPOAssignment userPOAssignment = assignedPoRepository.findById(userId);
+		UserPOAssignment userPOAssignment = assignedPoRepository.findById(userId).get();
+		return poItemsRepository.findByPONum(userPOAssignment.getPoNum()).collect(Collectors.toList());
+		//UserPOAssignment userPOAssignment = assignedPoRepository.findById(userId);
 		return poItemsRepository.findByPONum(userPOAssignment.getPoNum());
 
 	}
